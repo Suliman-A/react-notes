@@ -1,15 +1,22 @@
 import React from "react";
+import { Button } from "react-bootstrap";
 
 interface Props {
   title: string;
   color?: "primary" | "secondary" | "danger";
   onClick: () => void;
+  type?: "button" | "submit" | "reset";
 }
-const AppButton = ({ title, color = "primary", onClick }: Props) => {
+const AppButton = ({
+  title,
+  type = "button",
+  color = "primary",
+  onClick,
+}: Props) => {
   return (
-    <button type="button" className={`btn btn-${color}`} onClick={onClick}>
+    <Button type={type} className={`btn btn-${color}`} onClick={onClick}>
       {title}
-    </button>
+    </Button>
   );
 };
 
